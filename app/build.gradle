@@ -1,0 +1,84 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        applicationId "tanzania.magazeti.magazeti"
+        minSdkVersion 16
+        targetSdkVersion 25 // TODO http://b.android.com/212316
+        versionCode 1
+        versionName "1.0"
+        buildConfigField "int", "LATEST_RELEASE", "74"
+        buildConfigField "String", "GITHUB_TOKEN", "\"\""
+        buildConfigField "String", "MERCURY_TOKEN", "\"\""
+        proguardFiles getDefaultProguardFile('proguard-android.txt'),
+                'proguard-rules.pro',
+                'proguard-square.pro',
+                'proguard-support.pro',
+                'proguard-rx.pro'
+        resConfigs "en", "zh-rCN"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        htmlReport false
+        xmlReport false
+        textReport true
+        lintConfig file("${rootProject.getRootDir()}/lint.xml")
+        warningsAsErrors true
+        abortOnError true
+        explainIssues false
+        absolutePaths false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    aaptOptions {
+        cruncherEnabled = false
+    }
+}
+
+ext {
+    supportVersion = '25.3.1'
+    okHttpVersion = '3.7.0'
+    daggerVersion = '1.2.5'
+    leakCanaryVersion = '1.5'
+    retrofitVersion = '2.2.0'
+}
+
+dependencies {
+    implementation "com.android.support:appcompat-v7:$supportVersion",
+            "com.android.support:recyclerview-v7:$supportVersion",
+            "com.android.support:cardview-v7:$supportVersion",
+            "com.google.firebase:firebase-ads:10.2.0",
+            "com.google.firebase:firebase-database:10.2.0",
+            "com.google.firebase:firebase-messaging:10.2.0",
+            "com.android.support:design:$supportVersion",
+            "com.android.support:preference-v7:$supportVersion",
+            "com.android.support:customtabs:$supportVersion",
+            "com.squareup.dagger:dagger:$daggerVersion",
+            "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            "com.squareup.retrofit2:converter-gson:$retrofitVersion",
+            "com.squareup.retrofit2:adapter-rxjava:$retrofitVersion",
+            "com.squareup.okhttp3:okhttp:$okHttpVersion",
+            "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+            "io.reactivex:rxandroid:1.2.1",
+            "io.reactivex:rxjava:1.1.7"
+    annotationProcessor "com.squareup.dagger:dagger-compiler:$daggerVersion"
+    testAnnotationProcessor "com.squareup.dagger:dagger-compiler:$daggerVersion"
+}
+
+apply from: "${rootProject.getRootDir()}/robolectric.gradle"
+apply from: "${rootProject.getRootDir()}/jacoco.gradle"
+apply plugin: 'com.google.gms.google-services'

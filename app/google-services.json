@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "619416690399",
+    "firebase_url": "https://magazeti-45857.firebaseio.com",
+    "project_id": "magazeti-45857",
+    "storage_bucket": "magazeti-45857.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619416690399:android:db18e6aaa32b4674",
+        "android_client_info": {
+          "package_name": "tanzania.magazeti.magazeti"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619416690399-mmb3pdnkhl61bvgbns317egoiom3625u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0mAVotOfBQHO3SBfo0HkK5HY0KWcD5bM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
